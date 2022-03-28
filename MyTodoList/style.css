@@ -1,0 +1,114 @@
+:root{
+    --primary-color: #242933 ;
+    --secondary-color: #828CAD;
+    --terciary-color: #f0f0f0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 60%;
+}
+
+body{
+    background-color: var(--primary-color);
+    font-family: 'open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.conteiner{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.title{
+    width: 100%;
+    height: 80px;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    box-shadow: 1px 1px 5px var(--secondary-color);
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.list{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    box-shadow: 1px 1px 5px var(--secondary-color);
+}
+
+.item > div{
+    width: 80%;
+}
+
+.item:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.item > input[type='text'] {
+    width: 80%;
+    border: none;
+    font: inherit;
+}
+
+.item > input[type='button'],
+.item > input[type='checkbox'] {
+    width: 30px;
+    height: 30px;
+    font: inherit;
+}
+
+.item > input[type='checkbox']:checked + div{ /* Quando a check box por marcada risca o item */
+    text-decoration: line-through;
+}
+
+.newItem{
+    width: 100%;
+    height: 70px;
+    padding: 10px 0;
+    margin: 10px;
+    font: inherit;
+    background-color: var(--terciary-color);
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 1px 1px 5px var(--secondary-color);
+}
+
+.newItem > input{
+    width: 80%;
+    background-color: var(--terciary-color);
+    border: none;
+    outline: none;
+    font: inherit;
+}
+
+.newItem > input::placeholder {
+    font-style: italic;
+    font-weight: normal;
+}
