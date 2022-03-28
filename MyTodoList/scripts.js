@@ -46,9 +46,20 @@ const newAssignment = (event) => {
   }
 };
 
+const removeItem = (index) => {
+  dataBase.splice(index, 1);
+  update();
+};
+
 const clickItem = (event) => {
   const element = event.target;
-  console.log(element);
+  if (element.type === "button") {
+    const index = element.dataset.index;
+    removeItem(index);
+  } else if (element.type === "checkbox") {
+    const index = element.dataset.index;
+    updateItem();
+  }
 };
 
 /* Observa o evento de preciona tecla */
