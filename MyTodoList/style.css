@@ -40,7 +40,8 @@ body{
     margin-top: 50px;
     box-shadow: 1px 1px 5px var(--secondary-color);
     font-size: 3rem;
-    color: var(--primary-color);
+    color: #f0f0f0;
+    border-radius: 10px
 }
 
 .list{
@@ -58,6 +59,8 @@ body{
     align-items: center;
     padding: 5px;
     box-shadow: 1px 1px 5px var(--secondary-color);
+    color: #f0f0f0;
+    border-radius: 10px
 }
 
 .item > div{
@@ -94,6 +97,7 @@ body{
     padding: 10px 0;
     margin: 10px;
     font: inherit;
+    border-radius: 10px;
     background-color: var(--terciary-color);
     display: flex;
     justify-content: space-evenly;

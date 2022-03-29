@@ -1,15 +1,8 @@
-/* <label for="" class="item">
-                <input type="checkbox">
-                <div>teste de item 1</div>
-                <input type="button" value="X">
-            </label>
- */
-
-let dataBase = [
-  { assignment: "Estudar JS", status: "" } /* Banco de dados local*/,
-  { assignment: "Netflix", status: "checked" },
-  { assignment: "Aula faculdade", status: "" },
-];
+//Busca informação no localStorege e caso esteja vazio adiciona um valor array vazio '[]'
+const getBase = () => JSON.parse(localStorage.getItem("todoList")) ?? [];
+//
+const setdataBase = (dataBase) =>
+  localStorage.setItem("todoList", JSON.stringify(dataBase));
 
 const createItem = (text, status, index) => {
   /* Cria um novo elemwnto HTML */
@@ -31,6 +24,7 @@ const clearAssignment = () => {
 
 const update = () => {
   clearAssignment();
+  const dataBase = getBase(); // ativa a função que pega os dados no localStorege
   dataBase.forEach((item, index) =>
     createItem(item.assignment, item.status, index)
   );
@@ -40,19 +34,25 @@ const newAssignment = (event) => {
   const tecla = event.key;
   const text = event.target.value;
   if (tecla === "Enter") {
+    const dataBase = getBase(); // lê o banco e cria um item
     dataBase.push({ assignment: text, status: "" });
+    setdataBase(dataBase);
     update();
     event.target.value = "";
   }
 };
 
 const removeItem = (index) => {
+  const dataBase = getBase();
   dataBase.splice(index, 1);
+  setdataBase(dataBase);
   update();
 };
 
 const updateItem = (index) => {
+  const dataBase = getBase();
   dataBase[index].status = dataBase[index].status === "" ? "checked" : "";
+  setdataBase(dataBase);
   update();
 };
 
@@ -63,7 +63,7 @@ const clickItem = (event) => {
     removeItem(index);
   } else if (element.type === "checkbox") {
     const index = element.dataset.index;
-    updateItem(index); // Falta criar função 'updateitem()' pausa em 47 min
+    updateItem(index);
   }
 };
 
