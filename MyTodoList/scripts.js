@@ -51,6 +51,11 @@ const removeItem = (index) => {
   update();
 };
 
+const updateItem = (index) => {
+  dataBase[index].status = dataBase[index].status === "" ? "checked" : "";
+  update();
+};
+
 const clickItem = (event) => {
   const element = event.target;
   if (element.type === "button") {
@@ -58,7 +63,7 @@ const clickItem = (event) => {
     removeItem(index);
   } else if (element.type === "checkbox") {
     const index = element.dataset.index;
-    updateItem();
+    updateItem(index); // Falta criar função 'updateitem()' pausa em 47 min
   }
 };
 
